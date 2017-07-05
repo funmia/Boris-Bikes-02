@@ -14,6 +14,8 @@ Person |
 bike  |
 docking station | release_a_bike
 
-Person |
 
+Objects | Messages
+--|--
+Person |
 bike | is_working
