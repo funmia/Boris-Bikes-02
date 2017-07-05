@@ -4,9 +4,9 @@
   3.Docking Station
 
 
-### Verbs
-    1. Release
-    2. Working
+### Verbs
+  -Release
+  -Working
 
 Objects | Messages
 --|--
