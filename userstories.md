@@ -5,8 +5,8 @@
 
 
 ### Verbs
-  -Release
-  -Working
+  1. Release
+  2. Working
 
 Objects | Messages
 --|--
