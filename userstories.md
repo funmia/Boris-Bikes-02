@@ -1,7 +1,7 @@
 ### Nouns
-  1.Person
-  2.Bike
-  3.Docking Station
+  1. Person
+  2. Bike
+  3. Docking Station
 
 
 ### Verbs
