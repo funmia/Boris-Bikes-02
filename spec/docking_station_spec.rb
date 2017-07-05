@@ -13,4 +13,9 @@ describe DockingStation do
       expect(subject.release_bike.working?).to be true
     end
   end
+  describe '#dock' do
+    it "responds to #dock method" do
+      expect(subject).to respond_to(:dock)
+    end
+  end
 end
