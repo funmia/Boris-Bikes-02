@@ -1,14 +1,24 @@
+
 require_relative 'bike'
 
+
 class DockingStation
-    attr_reader :bike
-    def release_bike
-      fail 'No bikes available' unless @bike
-      @bike
+
+    attr_reader :bikes
+
+    def initialize
+      @bikes = []
+
     end
-    def dock(bike)
-      fail 'There is no space to dock' if @bike
-      @bike = bike
-      puts "#{@bike} has been docked."
+
+    def release_bike
+      fail 'No bikes available' unless @bikes.count > 0
+      @bikes.pop
+    end
+
+    def dock(bikes)
+      fail 'There is no space to dock' if @bikes.count == 20
+      @bikes << bikes
+      puts "#{bikes} has been docked."
     end
 end

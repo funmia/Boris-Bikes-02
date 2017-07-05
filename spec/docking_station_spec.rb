@@ -15,7 +15,7 @@ describe DockingStation do
       expect(subject).to respond_to(:dock)
     end
     it "If there is a bike, dock raises an error" do
-      subject.dock(Bike.new)
+      20.times{subject.dock(Bike.new)}
       expect { subject.dock(Bike.new) }.to raise_error 'There is no space to dock'
     end
   end
