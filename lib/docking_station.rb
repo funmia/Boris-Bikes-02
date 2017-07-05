@@ -7,6 +7,7 @@ class DockingStation
       @bike
     end
     def dock(bike)
+      fail 'There is no space to dock' if @bike
       @bike = bike
       puts "#{@bike} has been docked."
     end
