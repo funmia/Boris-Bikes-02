@@ -20,7 +20,6 @@ class DockingStation
     end
 
     def dock(bike)
-
       fail 'There is no space to dock' if full?
       @bikes << bike
       #puts "#{bike} has been docked."
@@ -28,11 +27,12 @@ class DockingStation
 
     private
 
-      attr_reader :bikes
+#      attr_reader :bikes # if we have a reader, why are wwe accessing instance variables still?, encapsulation?!?!?!?!?
 
       def working_bike_array
         #filter out broken bikes and return array
-        @bikes.reject{|bike| bike.working == false}
+        @bikes.reject { |bike| bike.working == false}
+        # @bikes.select(&:working)
       end
 
       def full?
@@ -41,7 +41,7 @@ class DockingStation
 
 
       def empty?
-        return true if @bikes.count == 0
+        @bikes.count == 0
       end
 
 end
