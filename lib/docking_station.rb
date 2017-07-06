@@ -8,7 +8,8 @@ class DockingStation
 
     DEFAULT_CAPACITY = 20
 
-    def initialize
+    def initialize(capacity = DEFAULT_CAPACITY)
+      @capacity = capacity
       @bikes = []
     end
 
@@ -21,13 +22,13 @@ class DockingStation
 
       fail 'There is no space to dock' if full?
       @bikes << bike
-      puts "#{bike} has been docked."
+      #puts "#{bike} has been docked."
     end
 
     private
 
       def full?
-        return true if @bikes.count >= DEFAULT_CAPACITY
+        return true if @bikes.count >= @capacity
       end
 
 
