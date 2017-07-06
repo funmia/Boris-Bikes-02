@@ -5,9 +5,10 @@
 
 
 #Contributors
-	- Toby Hamand
-	- Nandhini Narasimhan
-	- Funmi Adewodu
+
+	* Toby Hamand
+	* Nandhini Narasimhan
+	* Funmi Adewodu
 
 # Tech Stack
 
