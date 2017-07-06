@@ -7,7 +7,13 @@ describe DockingStation do
       expect(subject).to respond_to(:release_bike)
     end
     it "If there are no bikes, release_bike raises an error" do
-        expect { subject.release_bike }.to raise_error 'No bikes available'
+      expect { subject.release_bike }.to raise_error 'No bikes available'
+    end
+    it "doesn't release broken bikes" do
+      bike1 = Bike.new
+      bike1.report_broken
+      subject.dock(bike1)
+      expect { subject.release_bike }.to raise_error 'No working bikes available'
     end
   end
 
@@ -16,7 +22,7 @@ describe DockingStation do
       expect(subject).to respond_to(:dock)
     end
     it "If there is a bike, dock raises an error" do
-      subject.instance_variable_get(:@capacity).times{subject.dock(Bike.new)}
+      subject.capacity.times{subject.dock(Bike.new)}
       expect { subject.dock(Bike.new) }.to raise_error 'There is no space to dock'
     end
   end
@@ -24,11 +30,11 @@ describe DockingStation do
   describe '#new' do
     it "stores the argument as the capacity variable" do
       docking_station = DockingStation.new(10)
-      expect(docking_station.instance_variable_get(:@capacity)).to eq 10
+      expect(docking_station.capacity).to eq 10
     end
     it "has a default capacity of 20 " do
       docking_station = DockingStation.new
-      expect(docking_station.instance_variable_get(:@capacity)).to eq 20
+      expect(docking_station.capacity).to eq 20
     end
     it "sets the capacity to the capacity variable" do
       docking_station = DockingStation.new(1)
