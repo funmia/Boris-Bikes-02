@@ -36,7 +36,7 @@ class DockingStation
       end
 
       def full?
-        return true if @bikes.count >= @capacity #refactor
+        @bikes.count >= @capacity
       end
 
 
