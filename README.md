@@ -5,15 +5,12 @@
 
 
 #Contributors
-	1.Toby Hamand
-	2.Nandhini Narasimhan
+	- Toby Hamand
+	- Nandhini Narasimhan
+	- Funmi Adewodu
 
 # Tech Stack
 
 	1. Ruby
 	2. TDD using RSpec
 	3. Git versioning
-
-
-
-
