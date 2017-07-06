@@ -15,11 +15,8 @@ class DockingStation
 
     def release_bike
       fail 'No bikes available' if empty?
-      fail 'No working bikes available' if @bikes.reject{|bike| bike.working == false}.empty?
-      #return an array of working bikes(filter out broken bikes)
-      popped_bike = @bikes.reject{|bike| bike.working == false}.pop
-      #return a working bike from the array
-      @bikes.delete(popped_bike)
+      fail 'No working bikes available' if working_bike_array.empty?
+      @bikes.delete(working_bike_array.pop)
     end
 
     def dock(bike)
@@ -33,7 +30,10 @@ class DockingStation
 
       attr_reader :bikes
 
-
+      def working_bike_array
+        #filter out broken bikes and return array
+        @bikes.reject{|bike| bike.working == false}
+      end
 
       def full?
         return true if @bikes.count >= @capacity #refactor
