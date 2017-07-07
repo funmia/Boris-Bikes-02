@@ -4,7 +4,7 @@ require_relative 'bike'
 
 class DockingStation
 
-    attr_reader :capacity, :bikes 
+    attr_reader :capacity, :bikes
 
     DEFAULT_CAPACITY = 20
 
@@ -31,8 +31,7 @@ class DockingStation
 
       def working_bike_array
         #filter out broken bikes and return array
-        @bikes.reject { |bike| bike.working == false}
-        # @bikes.select(&:working)
+        @bikes.select(&:working)
       end
 
       def full?
