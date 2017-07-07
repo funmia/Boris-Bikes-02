@@ -4,7 +4,7 @@ require_relative 'bike'
 
 class DockingStation
 
-    attr_reader :capacity
+    attr_reader :capacity, :bikes 
 
     DEFAULT_CAPACITY = 20
 
@@ -27,7 +27,7 @@ class DockingStation
 
     private
 
-#      attr_reader :bikes # if we have a reader, why are wwe accessing instance variables still?, encapsulation?!?!?!?!?
+     #attr_reader :bikes # if we have a reader, why are wwe accessing instance variables still?, encapsulation?!?!?!?!?
 
       def working_bike_array
         #filter out broken bikes and return array
