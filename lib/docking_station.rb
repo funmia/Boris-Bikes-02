@@ -1,5 +1,6 @@
 require_relative 'bike'
 require 'van'
+require 'garage'
 
 class DockingStation
 
@@ -30,8 +31,6 @@ class DockingStation
 
     private
 
-     #attr_reader :bikes # if we have a reader, why are wwe accessing instance variables still?, encapsulation?!?!?!?!?
-
       def working_bike_array
         #filter out broken bikes and return array
         @bikes.select(&:working)
@@ -46,3 +45,31 @@ class DockingStation
         @bikes.count == 0
       end
 end
+
+require './lib/bike.rb'
+require './lib/van.rb'
+require './lib/garage.rb'
+ds = DockingStation.new
+bike1 = Bike.new
+bike2 = Bike.new
+bike3 = Bike.new
+bike4 = Bike.new
+bike5 = Bike.new
+bike6 = Bike.new
+bike1.report_broken
+bike4.report_broken
+bike6.report_broken
+ds.dock(bike1)
+ds.dock(bike2)
+ds.dock(bike3)
+ds.dock(bike4)
+ds.dock(bike5)
+ds.dock(bike6)
+van = Van.new
+van.collect_broken_bikes(ds)
+garage = Garage.new
+van.deliver_broken_bikes(garage)
+van.bikes # => []
+garage.bikes # => an array of broken bikes
+garage.fix_bikes
+garage.bikes # => an array of fixed bikes

@@ -4,6 +4,7 @@ require 'bike'
 
 describe Van do
   let(:docking_station) {DockingStation.new}
+  let(:garage) {Garage.new}
   let(:bike1) {Bike.new}
   let(:bike2) {Bike.new}
 
@@ -14,11 +15,12 @@ describe Van do
   end
 
   it { is_expected.to respond_to(:collect_broken_bikes) }
-  it { is_expected.to respond_to(:broken_bikes) }
+  it { is_expected.to respond_to(:bikes) }
+  it { is_expected.to respond_to(:deliver_broken_bikes) }
 
   describe '#initialize' do
-    it 'van should start with an empty array' do
-      expect(subject.broken_bikes).to eq []
+    it 'should start with an empty array' do
+      expect(subject.bikes).to eq []
     end
   end
 
@@ -32,8 +34,25 @@ describe Van do
     end
 
     it 'stores broken bikes in a van' do
-      expect(subject.broken_bikes).to include(bike1)
+      expect(subject.bikes).to include(bike1)
     end
 
   end
+
+  describe '#deliver_broken_bikes' do
+    before(:example) do # puts a broken bike in the van
+      subject.collect_broken_bikes(docking_station)
+      subject.deliver_broken_bikes(garage)
+    end
+
+    it 'delivers broken bikes to the garage' do
+      expect(garage.bikes).to include(bike1)
+    end
+
+    it 'empties the van' do
+      expect(subject.bikes).to eq []
+    end
+
+  end
+
 end

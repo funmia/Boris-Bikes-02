@@ -1,17 +1,19 @@
 class Van
-  attr_reader :broken_bikes
+  attr_reader :bikes
 
   def initialize
-    @broken_bikes = []
+    @bikes = []
   end
 
   def collect_broken_bikes(station)
-    station.bikes.each { |bike| bike.working == false ? @broken_bikes << bike : nil }
+    station.bikes.each { |bike| bike.working == false ? @bikes << bike : nil }
     station.release_broken_bikes
-    @broken_bikes
+    @bikes
   end
 
-  # def
-  #
-  # end
+  def deliver_broken_bikes(garage)
+    garage.receive_bikes(self)
+    @bikes = []
+  end
+
 end
