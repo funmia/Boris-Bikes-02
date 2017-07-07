@@ -10,6 +10,7 @@ Restarting the Boris bikes challenge of week 1. Boris Bikes in London allows you
 * Toby Hamand
 * Nandhini Narasimhan
 * Funmi Adewodu
+* Alexander Blair
 
 ### Tech Stack
 
