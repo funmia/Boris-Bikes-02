@@ -1,6 +1,5 @@
-
 require_relative 'bike'
-
+require 'van'
 
 class DockingStation
 
@@ -25,6 +24,10 @@ class DockingStation
       #puts "#{bike} has been docked."
     end
 
+    def release_broken_bikes
+      @bikes.reject! { |bike| bike.working == false }
+    end
+
     private
 
      #attr_reader :bikes # if we have a reader, why are wwe accessing instance variables still?, encapsulation?!?!?!?!?
@@ -42,5 +45,4 @@ class DockingStation
       def empty?
         @bikes.count == 0
       end
-
 end

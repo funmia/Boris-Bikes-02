@@ -4,7 +4,7 @@ require "bike"
 describe DockingStation do
 
   let(:bike) { double :bike }
-  
+
   describe '#release_bike' do
 
     it { is_expected.to respond_to(:release_bike)}
@@ -42,4 +42,10 @@ describe DockingStation do
       expect(subject.capacity).to eq 20
     end
   end
+
+  describe '#release_broken_bikes' do
+    it { is_expected.to respond_to(:release_broken_bikes) }
+  end
+
+
 end
